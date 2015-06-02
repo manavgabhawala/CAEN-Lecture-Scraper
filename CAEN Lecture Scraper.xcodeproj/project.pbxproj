@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		82B9A0201B1E34C9007F3D9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B9A01F1B1E34C9007F3D9F /* AppDelegate.swift */; };
+		82B9A0221B1E34C9007F3D9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B9A0211B1E34C9007F3D9F /* Images.xcassets */; };
+		82B9A0251B1E34C9007F3D9F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B9A0231B1E34C9007F3D9F /* MainMenu.xib */; };
+		82B9A0311B1E34C9007F3D9F /* CAEN_Lecture_ScraperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B9A0301B1E34C9007F3D9F /* CAEN_Lecture_ScraperTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		82B9A02B1B1E34C9007F3D9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82B9A0121B1E34C8007F3D9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82B9A0191B1E34C8007F3D9F;
+			remoteInfo = "CAEN Lecture Scraper";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		82B9A01A1B1E34C8007F3D9F /* CAEN Lecture Scraper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CAEN Lecture Scraper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82B9A01E1B1E34C9007F3D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82B9A01F1B1E34C9007F3D9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		82B9A0211B1E34C9007F3D9F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		82B9A0241B1E34C9007F3D9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		82B9A02A1B1E34C9007F3D9F /* CAEN Lecture ScraperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CAEN Lecture ScraperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82B9A02F1B1E34C9007F3D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82B9A0301B1E34C9007F3D9F /* CAEN_Lecture_ScraperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEN_Lecture_ScraperTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		82B9A0171B1E34C8007F3D9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82B9A0271B1E34C9007F3D9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		82B9A0111B1E34C8007F3D9F = {
+			isa = PBXGroup;
+			children = (
+				82B9A01C1B1E34C8007F3D9F /* CAEN Lecture Scraper */,
+				82B9A02D1B1E34C9007F3D9F /* CAEN Lecture ScraperTests */,
+				82B9A01B1B1E34C8007F3D9F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		82B9A01B1B1E34C8007F3D9F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				82B9A01A1B1E34C8007F3D9F /* CAEN Lecture Scraper.app */,
+				82B9A02A1B1E34C9007F3D9F /* CAEN Lecture ScraperTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		82B9A01C1B1E34C8007F3D9F /* CAEN Lecture Scraper */ = {
+			isa = PBXGroup;
+			children = (
+				82B9A01F1B1E34C9007F3D9F /* AppDelegate.swift */,
+				82B9A0211B1E34C9007F3D9F /* Images.xcassets */,
+				82B9A0231B1E34C9007F3D9F /* MainMenu.xib */,
+				82B9A01D1B1E34C8007F3D9F /* Supporting Files */,
+			);
+			path = "CAEN Lecture Scraper";
+			sourceTree = "<group>";
+		};
+		82B9A01D1B1E34C8007F3D9F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				82B9A01E1B1E34C9007F3D9F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		82B9A02D1B1E34C9007F3D9F /* CAEN Lecture ScraperTests */ = {
+			isa = PBXGroup;
+			children = (
+				82B9A0301B1E34C9007F3D9F /* CAEN_Lecture_ScraperTests.swift */,
+				82B9A02E1B1E34C9007F3D9F /* Supporting Files */,
+			);
+			path = "CAEN Lecture ScraperTests";
+			sourceTree = "<group>";
+		};
+		82B9A02E1B1E34C9007F3D9F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				82B9A02F1B1E34C9007F3D9F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		82B9A0191B1E34C8007F3D9F /* CAEN Lecture Scraper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82B9A0341B1E34C9007F3D9F /* Build configuration list for PBXNativeTarget "CAEN Lecture Scraper" */;
+			buildPhases = (
+				82B9A0161B1E34C8007F3D9F /* Sources */,
+				82B9A0171B1E34C8007F3D9F /* Frameworks */,
+				82B9A0181B1E34C8007F3D9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CAEN Lecture Scraper";
+			productName = "CAEN Lecture Scraper";
+			productReference = 82B9A01A1B1E34C8007F3D9F /* CAEN Lecture Scraper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		82B9A0291B1E34C9007F3D9F /* CAEN Lecture ScraperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82B9A0371B1E34C9007F3D9F /* Build configuration list for PBXNativeTarget "CAEN Lecture ScraperTests" */;
+			buildPhases = (
+				82B9A0261B1E34C9007F3D9F /* Sources */,
+				82B9A0271B1E34C9007F3D9F /* Frameworks */,
+				82B9A0281B1E34C9007F3D9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82B9A02C1B1E34C9007F3D9F /* PBXTargetDependency */,
+			);
+			name = "CAEN Lecture ScraperTests";
+			productName = "CAEN Lecture ScraperTests";
+			productReference = 82B9A02A1B1E34C9007F3D9F /* CAEN Lecture ScraperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		82B9A0121B1E34C8007F3D9F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Manav Gabhawala";
+				TargetAttributes = {
+					82B9A0191B1E34C8007F3D9F = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					82B9A0291B1E34C9007F3D9F = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 82B9A0191B1E34C8007F3D9F;
+					};
+				};
+			};
+			buildConfigurationList = 82B9A0151B1E34C8007F3D9F /* Build configuration list for PBXProject "CAEN Lecture Scraper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 82B9A0111B1E34C8007F3D9F;
+			productRefGroup = 82B9A01B1B1E34C8007F3D9F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				82B9A0191B1E34C8007F3D9F /* CAEN Lecture Scraper */,
+				82B9A0291B1E34C9007F3D9F /* CAEN Lecture ScraperTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		82B9A0181B1E34C8007F3D9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82B9A0221B1E34C9007F3D9F /* Images.xcassets in Resources */,
+				82B9A0251B1E34C9007F3D9F /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82B9A0281B1E34C9007F3D9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		82B9A0161B1E34C8007F3D9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82B9A0201B1E34C9007F3D9F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82B9A0261B1E34C9007F3D9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82B9A0311B1E34C9007F3D9F /* CAEN_Lecture_ScraperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		82B9A02C1B1E34C9007F3D9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82B9A0191B1E34C8007F3D9F /* CAEN Lecture Scraper */;
+			targetProxy = 82B9A02B1B1E34C9007F3D9F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		82B9A0231B1E34C9007F3D9F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82B9A0241B1E34C9007F3D9F /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		82B9A0321B1E34C9007F3D9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		82B9A0331B1E34C9007F3D9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		82B9A0351B1E34C9007F3D9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "CAEN Lecture Scraper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		82B9A0361B1E34C9007F3D9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "CAEN Lecture Scraper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		82B9A0381B1E34C9007F3D9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CAEN Lecture ScraperTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CAEN Lecture Scraper.app/Contents/MacOS/CAEN Lecture Scraper";
+			};
+			name = Debug;
+		};
+		82B9A0391B1E34C9007F3D9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CAEN Lecture ScraperTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CAEN Lecture Scraper.app/Contents/MacOS/CAEN Lecture Scraper";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		82B9A0151B1E34C8007F3D9F /* Build configuration list for PBXProject "CAEN Lecture Scraper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82B9A0321B1E34C9007F3D9F /* Debug */,
+				82B9A0331B1E34C9007F3D9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82B9A0341B1E34C9007F3D9F /* Build configuration list for PBXNativeTarget "CAEN Lecture Scraper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82B9A0351B1E34C9007F3D9F /* Debug */,
+				82B9A0361B1E34C9007F3D9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		82B9A0371B1E34C9007F3D9F /* Build configuration list for PBXNativeTarget "CAEN Lecture ScraperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82B9A0381B1E34C9007F3D9F /* Debug */,
+				82B9A0391B1E34C9007F3D9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 82B9A0121B1E34C8007F3D9F /* Project object */;
+}
