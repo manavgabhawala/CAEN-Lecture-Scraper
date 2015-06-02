@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="7706"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="CAEN_Lecture_Scraper" customModuleProvider="target">
+            <connections>
+                <outlet property="URLInputter" destination="BrQ-6W-vva" id="Sfs-t8-Z5b"/>
+                <outlet property="instructionsLabel" destination="gvE-VZ-kHS" id="o4F-1L-HXV"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="webView" destination="JEJ-W3-Uhe" id="ZvJ-au-XBn"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView wantsLayer="YES" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="950" height="500"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <webView translatesAutoresizingMaskIntoConstraints="NO" id="JEJ-W3-Uhe">
+                    <rect key="frame" x="0.0" y="0.0" width="950" height="500"/>
+                    <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
+                        <nil key="identifier"/>
+                    </webPreferences>
+                    <connections>
+                        <outlet property="frameLoadDelegate" destination="-2" id="mYn-Ck-xTq"/>
+                        <outlet property="policyDelegate" destination="-2" id="1BM-Gb-jFd"/>
+                    </connections>
+                </webView>
+                <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="withinWindow" material="dark" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="1jI-Ve-c4T">
+                    <rect key="frame" x="0.0" y="420" width="200" height="80"/>
+                    <subviews>
+                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BrQ-6W-vva">
+                            <rect key="frame" x="20" y="38" width="160" height="22"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Paste URL Here" drawsBackground="YES" id="Ypg-yH-dbs">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7MS-sI-qPs">
+                            <rect key="frame" x="49" y="2" width="102" height="32"/>
+                            <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fav-UL-KKG">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="downloadVideos:" target="-2" id="YU4-i8-JVl"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="7MS-sI-qPs" firstAttribute="top" secondItem="BrQ-6W-vva" secondAttribute="bottom" constant="8" id="KLS-JP-3fh"/>
+                        <constraint firstItem="BrQ-6W-vva" firstAttribute="leading" secondItem="1jI-Ve-c4T" secondAttribute="leading" constant="20" id="MH0-4F-jhR"/>
+                        <constraint firstAttribute="centerX" secondItem="7MS-sI-qPs" secondAttribute="centerX" id="bUh-5z-szU"/>
+                        <constraint firstAttribute="height" constant="80" id="beQ-g3-dR3"/>
+                        <constraint firstAttribute="width" constant="200" id="bvB-xI-p7k"/>
+                        <constraint firstItem="BrQ-6W-vva" firstAttribute="top" secondItem="1jI-Ve-c4T" secondAttribute="top" constant="20" id="hdC-bU-uw3"/>
+                        <constraint firstAttribute="trailing" secondItem="BrQ-6W-vva" secondAttribute="trailing" constant="20" id="nUN-Ya-eZ7"/>
+                    </constraints>
+                </visualEffectView>
+                <visualEffectView wantsLayer="YES" appearanceType="vibrantDark" blendingMode="withinWindow" material="dark" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="ee0-4U-IIk">
+                    <rect key="frame" x="20" y="20" width="910" height="74"/>
+                    <subviews>
+                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvE-VZ-kHS">
+                            <rect key="frame" x="18" y="20" width="874" height="34"/>
+                            <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="Iao-zn-qKq">
+                                <font key="font" metaFont="system"/>
+                                <string key="title">Login to CTools in browser → Go to the CAEN Lecture Recordings for the class → Paste That URL Here (It should be a URL of the format leccap.umich... (Also make sure you have the new HTML 5 player enabled before pasting the link) → Paste → Download</string>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="gvE-VZ-kHS" firstAttribute="leading" secondItem="ee0-4U-IIk" secondAttribute="leading" constant="20" id="58B-Ua-Piv"/>
+                        <constraint firstAttribute="bottom" secondItem="gvE-VZ-kHS" secondAttribute="bottom" constant="20" id="9au-kY-QSn"/>
+                        <constraint firstItem="gvE-VZ-kHS" firstAttribute="top" secondItem="ee0-4U-IIk" secondAttribute="top" constant="20" id="Fwp-pc-FB3"/>
+                        <constraint firstAttribute="trailing" secondItem="gvE-VZ-kHS" secondAttribute="trailing" constant="20" id="dlN-Ec-XoN"/>
+                    </constraints>
+                </visualEffectView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="JEJ-W3-Uhe" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="49X-n7-8rT"/>
+                <constraint firstAttribute="bottom" secondItem="JEJ-W3-Uhe" secondAttribute="bottom" id="Eof-Bg-3EB"/>
+                <constraint firstItem="1jI-Ve-c4T" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="I1V-kL-mI1"/>
+                <constraint firstAttribute="trailing" secondItem="JEJ-W3-Uhe" secondAttribute="trailing" id="RGw-Ud-naW"/>
+                <constraint firstAttribute="bottom" secondItem="ee0-4U-IIk" secondAttribute="bottom" constant="20" id="ZEa-nO-wgY"/>
+                <constraint firstItem="JEJ-W3-Uhe" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="gIg-2q-Pch"/>
+                <constraint firstAttribute="trailing" secondItem="ee0-4U-IIk" secondAttribute="trailing" constant="20" id="lie-TG-YJ4"/>
+                <constraint firstItem="ee0-4U-IIk" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="oCf-Bo-1Ux"/>
+                <constraint firstItem="1jI-Ve-c4T" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="sIz-86-2Jb"/>
+            </constraints>
+        </customView>
+    </objects>
+</document>

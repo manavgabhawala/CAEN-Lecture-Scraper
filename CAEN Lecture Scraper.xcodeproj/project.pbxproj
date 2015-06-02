@@ -11,6 +11,9 @@
 		82B9A0221B1E34C9007F3D9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82B9A0211B1E34C9007F3D9F /* Images.xcassets */; };
 		82B9A0251B1E34C9007F3D9F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B9A0231B1E34C9007F3D9F /* MainMenu.xib */; };
 		82B9A0311B1E34C9007F3D9F /* CAEN_Lecture_ScraperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B9A0301B1E34C9007F3D9F /* CAEN_Lecture_ScraperTests.swift */; };
+		82B9A03F1B1E363E007F3D9F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B9A03D1B1E363E007F3D9F /* MainViewController.swift */; };
+		82B9A0401B1E363E007F3D9F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B9A03E1B1E363E007F3D9F /* MainViewController.xib */; };
+		82B9A0421B1E3C86007F3D9F /* GenericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B9A0411B1E3C86007F3D9F /* GenericExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 		82B9A0301B1E34C9007F3D9F /* CAEN_Lecture_ScraperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEN_Lecture_ScraperTests.swift; sourceTree = "<group>"; };
 		82B9A03B1B1E35AA007F3D9F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		82B9A03C1B1E35D2007F3D9F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		82B9A03D1B1E363E007F3D9F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		82B9A03E1B1E363E007F3D9F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		82B9A0411B1E3C86007F3D9F /* GenericExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				82B9A01F1B1E34C9007F3D9F /* AppDelegate.swift */,
-				82B9A0211B1E34C9007F3D9F /* Images.xcassets */,
+				82B9A0411B1E3C86007F3D9F /* GenericExtensions.swift */,
 				82B9A0231B1E34C9007F3D9F /* MainMenu.xib */,
+				82B9A03D1B1E363E007F3D9F /* MainViewController.swift */,
+				82B9A03E1B1E363E007F3D9F /* MainViewController.xib */,
+				82B9A0211B1E34C9007F3D9F /* Images.xcassets */,
 				82B9A01D1B1E34C8007F3D9F /* Supporting Files */,
 			);
 			path = "CAEN Lecture Scraper";
@@ -191,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B9A0221B1E34C9007F3D9F /* Images.xcassets in Resources */,
+				82B9A0401B1E363E007F3D9F /* MainViewController.xib in Resources */,
 				82B9A0251B1E34C9007F3D9F /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +220,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B9A0201B1E34C9007F3D9F /* AppDelegate.swift in Sources */,
+				82B9A03F1B1E363E007F3D9F /* MainViewController.swift in Sources */,
+				82B9A0421B1E3C86007F3D9F /* GenericExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +412,7 @@
 				82B9A0361B1E34C9007F3D9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		82B9A0371B1E34C9007F3D9F /* Build configuration list for PBXNativeTarget "CAEN Lecture ScraperTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +421,7 @@
 				82B9A0391B1E34C9007F3D9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
