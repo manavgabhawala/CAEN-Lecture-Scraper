@@ -32,6 +32,8 @@
 		82B9A02A1B1E34C9007F3D9F /* CAEN Lecture ScraperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CAEN Lecture ScraperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82B9A02F1B1E34C9007F3D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82B9A0301B1E34C9007F3D9F /* CAEN_Lecture_ScraperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAEN_Lecture_ScraperTests.swift; sourceTree = "<group>"; };
+		82B9A03B1B1E35AA007F3D9F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		82B9A03C1B1E35D2007F3D9F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,8 @@
 		82B9A0111B1E34C8007F3D9F = {
 			isa = PBXGroup;
 			children = (
+				82B9A03C1B1E35D2007F3D9F /* LICENSE */,
+				82B9A03B1B1E35AA007F3D9F /* README.md */,
 				82B9A01C1B1E34C8007F3D9F /* CAEN Lecture Scraper */,
 				82B9A02D1B1E34C9007F3D9F /* CAEN Lecture ScraperTests */,
 				82B9A01B1B1E34C8007F3D9F /* Products */,
