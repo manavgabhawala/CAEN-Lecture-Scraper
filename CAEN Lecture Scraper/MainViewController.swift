@@ -21,8 +21,9 @@ class MainViewController: NSViewController
 	@IBOutlet var URLInputter : NSTextField!
 	
 	var viewerLinks = [NSURL]() // Stores the viewer links.
-	var videoDownloadLinks = [VideoData]() // Stores the download URLs.
+//	var videoDownloadLinks = [VideoData]() // Stores the download URLs.
 	var timer : NSTimer!
+	weak var controller : DownloadVideosController?
 	
 	// MARK: - Initialization and Lifecycle
 	override init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
@@ -139,14 +140,18 @@ class MainViewController: NSViewController
 		{
 			timer.invalidate()
 			findVideoURLInHTML(webView.mainFrameDocument.body.outerHTML)
-			if viewerLinks.count > 0
+			// TODO: Change to > 0
+			if viewerLinks.count > 65
 			{
 				redirectToURL(viewerLinks.last!)
 			}
 			else
 			{
-				println(videoDownloadLinks)
 				webView.mainFrame.loadRequest(NSURLRequest(URL: NSURL(string: "https://google.com")!))
+				NSNotificationCenter.defaultCenter().postNotificationName(finishedAcquiringLinksNotification, object: nil)
+				println("\n\n\n\n\n")
+//				let controller = (NSApplication.sharedApplication().delegate as! AppDelegate).switchToTableView()
+				
 				/*
 				webView.removeFromSuperview()
 				let progress = ProgressTableController(nibName: "ProgressTableController", bundle: nil)!
@@ -185,7 +190,12 @@ class MainViewController: NSViewController
 			let title = HTML.textBetween("<span class=\"content-header-recording-title\">", end: "</span>") ?? "Unknown Title \(random())"
 			if let URL = NSURL(string: link)
 			{
-				videoDownloadLinks.append((filePath: directory.URLByAppendingPathComponent(title.safeString()).URLByAppendingPathExtension("mp4"), URL: URL))
+//				videoDownloadLinks.append((filePath: directory.URLByAppendingPathComponent(title.safeString()).URLByAppendingPathExtension("mp4"), URL: URL))
+				if controller == nil
+				{
+					controller = (NSApplication.sharedApplication().delegate as! AppDelegate).switchToTableView()
+				}
+				controller!.videos.append((filePath: directory.URLByAppendingPathComponent(title.safeString()).URLByAppendingPathExtension("mp4"), URL: URL))
 				return
 			}
 		}
@@ -203,7 +213,7 @@ extension MainViewController
 		{
 			// In each viewer that we are in we need to extract the direct download URL
 			let HTML = String(data : frame.dataSource?.data)
-			if viewerLinks.count > 0
+			if viewerLinks.count > 65
 			{
 				viewerLinks.removeLast()
 				timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "fetchDownloadOfNextVideo", userInfo: nil, repeats: true)
@@ -225,6 +235,7 @@ extension MainViewController
 			findAllVideoPlayerLinksFromHTML(frame.DOMDocument!.body.outerHTML)
 		}
 		else if sender.mainFrameURL.rangeOfString("https://weblogin.umich.edu/") != nil {}
+		else if sender.mainFrameURL.rangeOfString("google") != nil { }
 		else
 		{
 			showError("Incorrect URL!", informativeText: "The URL you pasted did not contain anything from which we can download videos. If you believe that you pasted the correct URL, you should ensure that HTML 5 player is enabled before pasting the URL.")

@@ -14,6 +14,10 @@
 		82B9A03F1B1E363E007F3D9F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B9A03D1B1E363E007F3D9F /* MainViewController.swift */; };
 		82B9A0401B1E363E007F3D9F /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B9A03E1B1E363E007F3D9F /* MainViewController.xib */; };
 		82B9A0421B1E3C86007F3D9F /* GenericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B9A0411B1E3C86007F3D9F /* GenericExtensions.swift */; };
+		82D703F11B1EDC0F00547A81 /* DownloadVideosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D703EF1B1EDC0F00547A81 /* DownloadVideosController.swift */; };
+		82D703F21B1EDC0F00547A81 /* DownloadVideosController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82D703F01B1EDC0F00547A81 /* DownloadVideosController.xib */; };
+		82D703F51B1EDC5D00547A81 /* EncapsulatedRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D703F41B1EDC5D00547A81 /* EncapsulatedRowView.swift */; };
+		82D703F81B1EDFFF00547A81 /* ProgressCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D703F71B1EDFFF00547A81 /* ProgressCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,10 @@
 		82B9A03D1B1E363E007F3D9F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		82B9A03E1B1E363E007F3D9F /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		82B9A0411B1E3C86007F3D9F /* GenericExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericExtensions.swift; sourceTree = "<group>"; };
+		82D703EF1B1EDC0F00547A81 /* DownloadVideosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadVideosController.swift; sourceTree = "<group>"; };
+		82D703F01B1EDC0F00547A81 /* DownloadVideosController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DownloadVideosController.xib; sourceTree = "<group>"; };
+		82D703F41B1EDC5D00547A81 /* EncapsulatedRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncapsulatedRowView.swift; sourceTree = "<group>"; };
+		82D703F71B1EDFFF00547A81 /* ProgressCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +94,8 @@
 				82B9A01F1B1E34C9007F3D9F /* AppDelegate.swift */,
 				82B9A0411B1E3C86007F3D9F /* GenericExtensions.swift */,
 				82B9A0231B1E34C9007F3D9F /* MainMenu.xib */,
-				82B9A03D1B1E363E007F3D9F /* MainViewController.swift */,
-				82B9A03E1B1E363E007F3D9F /* MainViewController.xib */,
+				82D703F31B1EDC2900547A81 /* Controllers */,
+				82D703F61B1EDCD000547A81 /* Views */,
 				82B9A0211B1E34C9007F3D9F /* Images.xcassets */,
 				82B9A01D1B1E34C8007F3D9F /* Supporting Files */,
 			);
@@ -117,6 +125,26 @@
 				82B9A02F1B1E34C9007F3D9F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		82D703F31B1EDC2900547A81 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				82B9A03D1B1E363E007F3D9F /* MainViewController.swift */,
+				82B9A03E1B1E363E007F3D9F /* MainViewController.xib */,
+				82D703EF1B1EDC0F00547A81 /* DownloadVideosController.swift */,
+				82D703F01B1EDC0F00547A81 /* DownloadVideosController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		82D703F61B1EDCD000547A81 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				82D703F41B1EDC5D00547A81 /* EncapsulatedRowView.swift */,
+				82D703F71B1EDFFF00547A81 /* ProgressCellView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +230,7 @@
 				82B9A0221B1E34C9007F3D9F /* Images.xcassets in Resources */,
 				82B9A0401B1E363E007F3D9F /* MainViewController.xib in Resources */,
 				82B9A0251B1E34C9007F3D9F /* MainMenu.xib in Resources */,
+				82D703F21B1EDC0F00547A81 /* DownloadVideosController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,8 +249,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				82B9A0201B1E34C9007F3D9F /* AppDelegate.swift in Sources */,
+				82D703F51B1EDC5D00547A81 /* EncapsulatedRowView.swift in Sources */,
 				82B9A03F1B1E363E007F3D9F /* MainViewController.swift in Sources */,
+				82D703F81B1EDFFF00547A81 /* ProgressCellView.swift in Sources */,
 				82B9A0421B1E3C86007F3D9F /* GenericExtensions.swift in Sources */,
+				82D703F11B1EDC0F00547A81 /* DownloadVideosController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
