@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>32C3D202-D993-45B8-A80B-D6401ADCB675</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CAEN Lecture Scraper</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E75A51605EF1E40EBADDBCE646B47183CFDFAF6B</key>
+		<string>https://github.com/manavgabhawala/CAEN-Lecture-Scraper.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CAEN Lecture Scraper.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E75A51605EF1E40EBADDBCE646B47183CFDFAF6B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/manavgabhawala/CAEN-Lecture-Scraper.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E75A51605EF1E40EBADDBCE646B47183CFDFAF6B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E75A51605EF1E40EBADDBCE646B47183CFDFAF6B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CAEN%20Lecture%20Scraper</string>
+		</dict>
+	</array>
+</dict>
+</plist>
