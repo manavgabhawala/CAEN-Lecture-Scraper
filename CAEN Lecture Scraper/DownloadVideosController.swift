@@ -15,7 +15,10 @@ class DownloadVideosController: NSViewController
 	@IBOutlet var tableView : NSTableView!
 	@IBOutlet var downloadButton: NSButton!
 	@IBOutlet var removeRowButton : NSButton!
+	@IBOutlet var addRowButton: NSButton!
+	@IBOutlet var clearDeleted: NSButton!
 	
+	var beginDownloading = false
 	var videos = [VideoData]()
 	{
 		didSet
@@ -35,6 +38,10 @@ class DownloadVideosController: NSViewController
 		remakeCells()
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "finishedAcquiringLinks", name: finishedAcquiringLinksNotification, object: nil)
     }
+	deinit
+	{
+		NSNotificationCenter.defaultCenter().removeObserver(self)
+	}
 	func finishedAcquiringLinks()
 	{
 		downloadButton.enabled = true
@@ -53,7 +60,7 @@ class DownloadVideosController: NSViewController
 				if let cell = tableView.makeViewWithIdentifier("status", owner: self) as? NSTableCellView
 				{
 					progressCell.statusCell = cell // Give it a weak reference to status so it can update it when necessary. Not the best way to do this but works.
-					cell.textField!.stringValue = "Queued"
+					cell.textField!.stringValue = "Waiting to Queue"
 					statusCells.append(cell)
 				}
 			}
@@ -66,6 +73,7 @@ class DownloadVideosController: NSViewController
 	}
 	@IBAction func beginDownloads(sender: NSButton)
 	{
+		beginDownloading = true
 		for cell in progressCells
 		{
 			cell.beginDownload()
@@ -73,7 +81,58 @@ class DownloadVideosController: NSViewController
 	}
 	@IBAction func removeRow(sender: NSButton)
 	{
-		
+		for selectedRow in tableView.selectedRowIndexes
+		{
+			let rowToDelete = selectedRow
+			if rowToDelete >= 0 && rowToDelete < progressCells.count
+			{
+				progressCells[rowToDelete].delete()
+				clearDeleted.enabled = true
+			}
+			else
+			{
+				removeRowButton.enabled = false
+			}
+		}
+		removeRowButton.enabled = false
+		tableView.selectRowIndexes(NSIndexSet(index: -1), byExtendingSelection: false)
+	}
+	@IBAction func clearDeletedRows(sender: NSButton)
+	{
+		var rowsToDelete = [Int]()
+		for (i, row) in enumerate(statusCells)
+		{
+			if row.textField!.stringValue == "Deleted"
+			{
+				rowsToDelete.append(i)
+			}
+		}
+		for rowToDelete in reverse(rowsToDelete)
+		{
+			statusCells.removeAtIndex(rowToDelete)
+			progressCells.removeAtIndex(rowToDelete)
+			fileNameCells.removeAtIndex(rowToDelete)
+			videos.removeAtIndex(rowToDelete)
+			tableView.removeRowsAtIndexes(NSIndexSet(index: rowToDelete), withAnimation: .SlideLeft)
+		}
+		clearDeleted.enabled = false
+	}
+	@IBAction func addRowBack(sender: NSButton)
+	{
+		for selectedRow in tableView.selectedRowIndexes
+		{
+			let rowToAdd = selectedRow
+			if rowToAdd >= 0 && rowToAdd < progressCells.count && statusCells[rowToAdd].textField!.stringValue == "Deleted"
+			{
+				statusCells[rowToAdd].textField!.stringValue = "Waiting to Queue"
+				if beginDownloading
+				{
+					progressCells[rowToAdd].beginDownload()
+				}
+			}
+		}
+		tableView.selectRowIndexes(NSIndexSet(index: -1), byExtendingSelection: false)
+		addRowButton.enabled = false
 	}
 }
 //MARK: - TableViewStuff
@@ -101,10 +160,23 @@ extension DownloadVideosController : NSTableViewDelegate, NSTableViewDataSource
 	}
 	func tableViewSelectionDidChange(notification: NSNotification)
 	{
-		let selectedRow = tableView.selectedRow
-		if selectedRow >= 0 && selectedRow < progressCells.count
+		var setDeleteTo = false
+		var setAddTo = false
+		for selectedRow in tableView.selectedRowIndexes
 		{
-			
+			if selectedRow >= 0 && selectedRow < progressCells.count
+			{
+				if statusCells[selectedRow].textField!.stringValue == "Deleted"
+				{
+					setAddTo = true
+				}
+				else
+				{
+					setDeleteTo = true
+				}
+			}
 		}
+		removeRowButton.enabled = setDeleteTo
+		addRowButton.enabled = setAddTo
 	}
 }

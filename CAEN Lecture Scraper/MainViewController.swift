@@ -141,7 +141,7 @@ class MainViewController: NSViewController
 			timer.invalidate()
 			findVideoURLInHTML(webView.mainFrameDocument.body.outerHTML)
 			// TODO: Change to > 0
-			if viewerLinks.count > 65
+			if viewerLinks.count > 0
 			{
 				redirectToURL(viewerLinks.last!)
 			}
@@ -150,25 +150,6 @@ class MainViewController: NSViewController
 				webView.mainFrame.loadRequest(NSURLRequest(URL: NSURL(string: "https://google.com")!))
 				NSNotificationCenter.defaultCenter().postNotificationName(finishedAcquiringLinksNotification, object: nil)
 				println("\n\n\n\n\n")
-//				let controller = (NSApplication.sharedApplication().delegate as! AppDelegate).switchToTableView()
-				
-				/*
-				webView.removeFromSuperview()
-				let progress = ProgressTableController(nibName: "ProgressTableController", bundle: nil)!
-				progress.videos = someArray
-				view.subviews.map { ($0 as! NSView).removeFromSuperview() }
-				progress.view.frame = view.frame
-				view.addSubview(progress.view)
-				println(progress.view.frame)
-				let verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[subView]|",
-					options: NSLayoutFormatOptions(0),
-					metrics: nil,
-					views: ["subView" : progress.view])
-				let horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[subView]|",
-					options: NSLayoutFormatOptions(0),
-					metrics: nil,
-					views: ["subView" : progress.view])
-				NSLayoutConstraint.activateConstraints(verticalConstraints + horizontalConstraints)*/
 			}
 		}
 	}
@@ -190,7 +171,6 @@ class MainViewController: NSViewController
 			let title = HTML.textBetween("<span class=\"content-header-recording-title\">", end: "</span>") ?? "Unknown Title \(random())"
 			if let URL = NSURL(string: link)
 			{
-//				videoDownloadLinks.append((filePath: directory.URLByAppendingPathComponent(title.safeString()).URLByAppendingPathExtension("mp4"), URL: URL))
 				if controller == nil
 				{
 					controller = (NSApplication.sharedApplication().delegate as! AppDelegate).switchToTableView()
@@ -213,7 +193,7 @@ extension MainViewController
 		{
 			// In each viewer that we are in we need to extract the direct download URL
 			let HTML = String(data : frame.dataSource?.data)
-			if viewerLinks.count > 65
+			if viewerLinks.count > 0
 			{
 				viewerLinks.removeLast()
 				timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "fetchDownloadOfNextVideo", userInfo: nil, repeats: true)

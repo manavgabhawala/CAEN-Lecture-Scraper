@@ -28,19 +28,24 @@ class ProgressCellView: NSTableCellView
 		{
 			task.suspend()
 		}
+		statusCell.textField!.stringValue = "Deleted"
 	}
 	
 	func beginDownload()
 	{
-		let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-		task = session.downloadTaskWithURL(downloadURL)
-		
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-			dispatch_semaphore_wait(downloadsAllowed, DISPATCH_TIME_FOREVER)
-			dispatch_async(dispatch_get_main_queue(), {
-				self.statusCell.textField!.stringValue = "Downloading"
+		if statusCell.textField!.stringValue != "Deleted"
+		{
+			statusCell.textField!.stringValue = "Queued"
+			let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: NSOperationQueue())
+			task = session.downloadTaskWithURL(downloadURL)
+			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+				dispatch_semaphore_wait(downloadsAllowed, DISPATCH_TIME_FOREVER)
+				dispatch_async(dispatch_get_main_queue(), {
+					self.statusCell.textField!.stringValue = "Downloading"
+				})
+				self.task.resume()
 			})
-		})
+		}
 	}
 }
 extension ProgressCellView : NSURLSessionDownloadDelegate
@@ -48,7 +53,6 @@ extension ProgressCellView : NSURLSessionDownloadDelegate
 	func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
 	{
 		progressBar.indeterminate = false
-		
 		progressBar.animator().doubleValue = Double(totalBytesWritten) / Double(totalBytesExpectedToWrite) * progressBar.maxValue
 	}
 	func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL)

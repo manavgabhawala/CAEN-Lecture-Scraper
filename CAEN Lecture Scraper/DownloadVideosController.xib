@@ -6,6 +6,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DownloadVideosController" customModule="CAEN_Lecture_Scraper" customModuleProvider="target">
             <connections>
+                <outlet property="addRowButton" destination="3A5-sE-F54" id="bDV-Pv-rfV"/>
+                <outlet property="clearDeleted" destination="hMF-By-21C" id="cS3-a3-4ao"/>
                 <outlet property="downloadButton" destination="17Z-H1-s52" id="woJ-bm-YZI"/>
                 <outlet property="removeRowButton" destination="PDU-k6-iGp" id="QmN-iB-WTP"/>
                 <outlet property="tableView" destination="HoN-id-nIb" id="3sQ-Md-nSd"/>
@@ -18,39 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3A5-sE-F54">
-                    <rect key="frame" x="392" y="10" width="30" height="23"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="26G-V9-Pw9"/>
-                    </constraints>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dw6-H9-oJK">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PDU-k6-iGp">
-                    <rect key="frame" x="430" y="10" width="30" height="23"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="OlL-ZN-hYq"/>
-                    </constraints>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZbA-Id-SwO">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="removeRow:" target="-2" id="xJE-dp-7Yk"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17Z-H1-s52">
-                    <rect key="frame" x="14" y="3" width="121" height="32"/>
-                    <buttonCell key="cell" type="push" title="Download All" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Bb-kW-NBq">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="beginDownloads:" target="-2" id="fgC-Uk-2u7"/>
-                    </connections>
-                </button>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1r-RK-pg5">
                     <rect key="frame" x="20" y="40" width="440" height="212"/>
                     <clipView key="contentView" id="zgf-OB-CBu">
@@ -195,18 +164,70 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3A5-sE-F54">
+                    <rect key="frame" x="392" y="10" width="30" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="26G-V9-Pw9"/>
+                    </constraints>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="overlaps" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dw6-H9-oJK">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="addRowBack:" target="-2" id="G7b-hl-R79"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PDU-k6-iGp">
+                    <rect key="frame" x="430" y="10" width="30" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="OlL-ZN-hYq"/>
+                    </constraints>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="overlaps" alignment="center" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZbA-Id-SwO">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="removeRow:" target="-2" id="xJE-dp-7Yk"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="17Z-H1-s52">
+                    <rect key="frame" x="14" y="4" width="121" height="32"/>
+                    <buttonCell key="cell" type="push" title="Download All" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Bb-kW-NBq">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="beginDownloads:" target="-2" id="fgC-Uk-2u7"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hMF-By-21C">
+                    <rect key="frame" x="135" y="4" width="124" height="32"/>
+                    <buttonCell key="cell" type="push" title="Clear Deleted" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zcI-f7-VJ8">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="clearDeletedRows:" target="-2" id="iRD-Ve-udN"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="3A5-sE-F54" firstAttribute="top" secondItem="W1r-RK-pg5" secondAttribute="bottom" constant="8" id="0QF-pH-wuz"/>
                 <constraint firstItem="W1r-RK-pg5" firstAttribute="trailing" secondItem="PDU-k6-iGp" secondAttribute="trailing" id="3OB-E8-RdP"/>
                 <constraint firstAttribute="trailing" secondItem="W1r-RK-pg5" secondAttribute="trailing" constant="20" id="6iv-FE-0F9"/>
                 <constraint firstAttribute="bottom" secondItem="3A5-sE-F54" secondAttribute="bottom" constant="11" id="7N2-ec-IcE"/>
+                <constraint firstItem="hMF-By-21C" firstAttribute="top" secondItem="W1r-RK-pg5" secondAttribute="bottom" constant="8" id="BL2-X3-jtd"/>
+                <constraint firstItem="17Z-H1-s52" firstAttribute="top" secondItem="W1r-RK-pg5" secondAttribute="bottom" constant="8" id="H3J-DU-Naf"/>
+                <constraint firstItem="hMF-By-21C" firstAttribute="leading" secondItem="17Z-H1-s52" secondAttribute="trailing" constant="12" id="OLi-IL-Us7"/>
                 <constraint firstAttribute="bottom" secondItem="W1r-RK-pg5" secondAttribute="bottom" constant="40" id="Vvd-xJ-uio"/>
                 <constraint firstItem="W1r-RK-pg5" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="cJP-Rz-pV1"/>
                 <constraint firstItem="W1r-RK-pg5" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="ebS-Bk-3YT"/>
+                <constraint firstAttribute="bottom" secondItem="17Z-H1-s52" secondAttribute="bottom" constant="11" id="fun-Wg-2kG"/>
                 <constraint firstItem="PDU-k6-iGp" firstAttribute="top" secondItem="W1r-RK-pg5" secondAttribute="bottom" constant="8" id="mSU-kX-sW8"/>
                 <constraint firstItem="PDU-k6-iGp" firstAttribute="leading" secondItem="3A5-sE-F54" secondAttribute="trailing" constant="8" id="qQe-jS-tH0"/>
+                <constraint firstAttribute="bottom" secondItem="hMF-By-21C" secondAttribute="bottom" constant="11" id="sHq-Js-jQS"/>
                 <constraint firstAttribute="bottom" secondItem="PDU-k6-iGp" secondAttribute="bottom" constant="11" id="ysL-b6-Oyi"/>
+                <constraint firstItem="17Z-H1-s52" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="zYP-tt-FbT"/>
             </constraints>
         </customView>
     </objects>
