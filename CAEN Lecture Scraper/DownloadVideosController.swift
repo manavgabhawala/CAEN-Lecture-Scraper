@@ -38,6 +38,14 @@ class DownloadVideosController: NSViewController
 		remakeCells()
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "finishedAcquiringLinks", name: finishedAcquiringLinksNotification, object: nil)
     }
+	override init?(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+	{
+		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+	}
+	required init?(coder: NSCoder)
+	{
+		super.init(coder: coder)
+	}
 	deinit
 	{
 		NSNotificationCenter.defaultCenter().removeObserver(self)
@@ -100,14 +108,14 @@ class DownloadVideosController: NSViewController
 	@IBAction func clearDeletedRows(sender: NSButton)
 	{
 		var rowsToDelete = [Int]()
-		for (i, row) in enumerate(statusCells)
+		for (i, row) in statusCells.enumerate()
 		{
 			if row.textField!.stringValue == "Deleted"
 			{
 				rowsToDelete.append(i)
 			}
 		}
-		for rowToDelete in reverse(rowsToDelete)
+		for rowToDelete in rowsToDelete.reverse()
 		{
 			statusCells.removeAtIndex(rowToDelete)
 			progressCells.removeAtIndex(rowToDelete)

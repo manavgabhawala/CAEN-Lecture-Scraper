@@ -74,7 +74,7 @@ class MainViewController: NSViewController
 			dialog.allowsMultipleSelection = false
 			if dialog.runModal() == NSFileHandlingPanelOKButton
 			{
-				directory = dialog.URLs.first! as! NSURL
+				directory = dialog.URLs.first! as NSURL
 				webView.mainFrame.loadRequest(NSURLRequest(URL: URL))
 				assert(webView.loading)
 				instructionsLabel.stringValue = "Login to your umich account which has access to the CTools page you linked to. Then wait and let the magic happen. Remember patience is key... (especially with slower internet connections)"
@@ -95,7 +95,7 @@ class MainViewController: NSViewController
 		for item in HTML.componentsSeparatedByString("<a class=\"button\" href=\"")
 		{
 			var link = "https://leccap.engin.umich.edu" // We need to append the base URL here.
-			for char in item
+			for char in item.characters
 			{
 				if char == "\""
 				{
@@ -108,7 +108,7 @@ class MainViewController: NSViewController
 		// Remove the garbage value that's caused when creating the array by splitting the HTML code.
 		links.removeAtIndex(0)
 		self.viewerLinks = links.map { NSURL(string: $0)! } // Map each string into a URL and save it in an ivar.
-		println(viewerLinks)
+		print(viewerLinks)
 		if self.viewerLinks.count > 1
 		{
 			webView.removeFromSuperview() // Remove the webview so that the user doesn't have to see the constant redirection.
@@ -134,8 +134,7 @@ class MainViewController: NSViewController
 	// Get's the direct download URL for the currently loaded frame on the webview
 	func fetchDownloadOfNextVideo()
 	{
-		println("Downloading...")
-		var error: NSError?
+		print("Downloading...")
 		if webView.mainFrameDocument.body.outerHTML.rangeOfString("<video autoplay=") != nil
 		{
 			timer.invalidate()
@@ -149,7 +148,7 @@ class MainViewController: NSViewController
 			{
 				webView.mainFrame.loadRequest(NSURLRequest(URL: NSURL(string: "https://google.com")!))
 				NSNotificationCenter.defaultCenter().postNotificationName(finishedAcquiringLinksNotification, object: nil)
-				println("\n\n\n\n\n")
+				print("\n\n\n\n\n")
 			}
 		}
 	}
@@ -160,7 +159,7 @@ class MainViewController: NSViewController
 		if let item = HTML.componentsSeparatedByString("<video autoplay=\"autoplay\" x-webkit-airplay=\"allow\" src=\"//").last
 		{
 			var link = "https://"
-			for char in item
+			for char in item.characters
 			{
 				if char == "\""
 				{
@@ -192,7 +191,6 @@ extension MainViewController
 		if sender.mainFrameURL.rangeOfString("https://leccap.engin.umich.edu/leccap/viewer") != nil
 		{
 			// In each viewer that we are in we need to extract the direct download URL
-			let HTML = String(data : frame.dataSource?.data)
 			if viewerLinks.count > 0
 			{
 				viewerLinks.removeLast()

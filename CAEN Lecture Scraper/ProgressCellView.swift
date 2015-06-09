@@ -64,8 +64,7 @@ extension ProgressCellView : NSURLSessionDownloadDelegate
 	}
 	func URLSession(session: NSURLSession, didBecomeInvalidWithError error: NSError?)
 	{
-		let downloadedStuff = error?.userInfo
-		println("Unhandled Error!")
-		println(error!.localizedDescription)
+		print("Unhandled Error!")
+		print(error!.localizedDescription)
 	}
 }
