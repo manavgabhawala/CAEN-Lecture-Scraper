@@ -17,7 +17,7 @@ Coming soon is a direct download link where you can launch the app directly afte
 - Now its time to be patient and not to touch anything. Don't click anything don't do anything just let us work our magic.
 - You will be navigated to a screen where slowly, one by one, the videos will begin to appear with a status of waiting to queue.
 [Image of Queueing]
-(https://github.com/manavgabhawala/CAEN-Lecture-Scraper/blob/master/Images/Queueing.png
+(https://github.com/manavgabhawala/CAEN-Lecture-Scraper/blob/master/Images/Queueing.png)
 - Once we have found all the video URLs, you will be able to click the Download All button.
 - But before you do that I made it possible to not download some videos if you don't want them. Just select the videos you don't want and click the - button on the bottom. Now their status should be updated to Deleted. If you accidentally deleted something click the + button to recover it.
 - Click the clear deleted removes all the deleted rows and makes them unrecoverable so be warned (if you need to restart the process from the beginning).
@@ -32,10 +32,17 @@ let downloadsAllowed = dispatch_semaphore_create(3) // Change the value 3 to wha
 
 ## FAQs
 1. How does this work?
-A. Coming soon.
+ 
+Ans: Coming soon.
+
 2. Is it safe to enter my password to download the videos?
-A. Most probably yes. It is directly authenticated with the weblogin, there is no interception of data so its exactly like logging in with a browser. If that's safe, this is safe.
+
+Ans: Most probably yes. It is directly authenticated with the weblogin, there is no interception of data so its exactly like logging in with a browser. If that's safe, this is safe.
+
 3. Why is there minimal UI like no app icon?
-A. If you want to help improve the UI send me the assets and I'll happily oblige by adding them to this tool.
+
+Ans: If you want to help improve the UI send me the assets and I'll happily oblige by adding them to this tool.
+
 4. I have a suggestion. How can I help improve this project?
-A. If you know Swift make a pull request and submit your improvements. If you don't report an issue and I'll try and look at it.
+
+Ans: If you know Swift make a pull request and submit your improvements. If you don't report an issue and I'll try and look at it.
