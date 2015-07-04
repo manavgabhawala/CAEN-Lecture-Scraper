@@ -1,4 +1,4 @@
-# CAEN-Lecture-Scrapper
+# CAEN-Lecture-Scraper
 ## Introduction
 Scrapes and downloads all videos from CAEN Lecture Recordings for any class so that they are available offline. Before you begin you will want to ensure you have a solid fast internet connection.
 ## Installation
