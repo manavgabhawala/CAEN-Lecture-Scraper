@@ -10,7 +10,7 @@ import Cocoa
 import WebKit
 
 var directory : NSURL!
-
+let baseURL = "https://leccap.engin.umich.edu"
 typealias VideoData = (filePath: NSURL, URL: NSURL)
 
 class MainViewController: NSViewController
@@ -90,11 +90,41 @@ class MainViewController: NSViewController
 	// Extracts viewer links from HTML code
 	func findAllVideoPlayerLinksFromHTML(HTML: String)
 	{
+		if (HTML.rangeOfString("new-viewer-popup-inner") != nil)
+		{
+			// Using the old player, redirect to the new player's main URL
+			guard let rangeIndex = HTML.rangeOfString("Try it out!")
+			else
+			{
+				showError("Unable to Automatically Convert to HTML 5 Player", informativeText: "In earlier versions we required you to use only the HTML 5 Player to be able to download the videos. However, we have added the feature to switch to the new player automatically without any work on your part. Unfortunately, we we were unable to convert the old player that you provided into the HTML 5 Player so  you will have to do it manually and paste the new URL here.")
+				return
+			}
+			var index = rangeIndex.startIndex
+			while (HTML.characters[index] != "\"")
+			{
+				index = index.predecessor()
+			}
+			let endIndex = index
+			index = index.predecessor()
+			while (HTML.characters[index] != "\"")
+			{
+				index = index.predecessor()
+			}
+			let startIndex = index
+			var redirectURL = baseURL
+			for ind in startIndex..<endIndex
+			{
+				redirectURL += "\(HTML[ind])"
+			}
+			webView.mainFrame.loadRequest(NSURLRequest(URL: NSURL(string: redirectURL)!))
+			return
+		}
+		
 		// Extract the viewer links from the HTML provided.
 		var links = [String]()
 		for item in HTML.componentsSeparatedByString("<a class=\"button\" href=\"")
 		{
-			var link = "https://leccap.engin.umich.edu" // We need to append the base URL here.
+			var link = baseURL // We need to append the base URL here.
 			for char in item.characters
 			{
 				if char == "\""
@@ -115,15 +145,7 @@ class MainViewController: NSViewController
 			// Go to the last viewer link so that we can extract it's direct download link.
 			redirectToURL(self.viewerLinks.last!)
 		}
-		/*
-		else
-		{
-			if !webView.loading
-			{
-				showError("Could not extract Videos", informativeText: "It seems like the URL you provided is not what we expected. Please make sure the URL is correct and that you have the new player enabled when you pasted the URL.")
-			}
-			
-		}*/
+		
 	}
 	// Redirects the frame to the required URL.
 	func redirectToURL(URL: NSURL)
@@ -139,7 +161,6 @@ class MainViewController: NSViewController
 		{
 			timer.invalidate()
 			findVideoURLInHTML(webView.mainFrameDocument.body.outerHTML)
-			// TODO: Change to > 0
 			if viewerLinks.count > 0
 			{
 				redirectToURL(viewerLinks.last!)
@@ -188,7 +209,7 @@ extension MainViewController
 {
 	override func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!)
 	{
-		if sender.mainFrameURL.rangeOfString("https://leccap.engin.umich.edu/leccap/viewer") != nil
+		if sender.mainFrameURL.rangeOfString("\(baseURL)/leccap/viewer") != nil
 		{
 			// In each viewer that we are in we need to extract the direct download URL
 			if viewerLinks.count > 0
@@ -197,15 +218,25 @@ extension MainViewController
 				timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "fetchDownloadOfNextVideo", userInfo: nil, repeats: true)
 			}
 		}
-		else if sender.mainFrameURL.rangeOfString("https://leccap.engin.umich.edu/") != nil
+		else if sender.mainFrameURL.rangeOfString(baseURL) != nil
 		{
+			let components = sender.mainFrameURL.componentsSeparatedByString("?")
+			if components.count > 1
+			{
+				if components[1].rangeOfString("mode=flash") != nil
+				{
+					let URL = NSURL(string: "\(components[0])?lti=1")!
+					frame.loadRequest(NSURLRequest(URL: URL))
+					return
+				}
+			}
 			// If we are in the general leccap page then extract the viewers' URLs
 			let HTML = String(data : frame.dataSource!.data)
 			if HTML?.rangeOfString("<a class=\"button\" href=\"") != nil
 			{
 				findAllVideoPlayerLinksFromHTML(HTML!)
 			}
-			else { fatalError("Something went wrong in the webview delegate. Try process again.") }
+			else { return }
 		}
 		else if sender.mainFrameURL.rangeOfString("https://ctools.umich.edu/portal/site/") != nil
 		{
