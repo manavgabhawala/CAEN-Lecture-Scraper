@@ -21,7 +21,6 @@ class MainViewController: NSViewController
 	@IBOutlet var URLInputter : NSTextField!
 	
 	var viewerLinks = [NSURL]() // Stores the viewer links.
-//	var videoDownloadLinks = [VideoData]() // Stores the download URLs.
 	var timer : NSTimer!
 	weak var controller : DownloadVideosController?
 	
@@ -39,8 +38,6 @@ class MainViewController: NSViewController
         super.viewDidLoad()
         // Do view setup here.
 		webView.frameLoadDelegate = self
-		webView.policyDelegate = self
-//		webView.mainFrameURL = "https://google.com"
     }
 	
 	// MARK: - Generic Helper methods
@@ -110,19 +107,16 @@ class MainViewController: NSViewController
 			{
 				index = index.predecessor()
 			}
-			let startIndex = index
-			var redirectURL = baseURL
-			for ind in startIndex..<endIndex
-			{
-				redirectURL += "\(HTML[ind])"
-			}
+			
+			let redirectURL = baseURL + HTML.substringWithRange(Range<String.Index>(start: index, end: endIndex))
+			
 			webView.mainFrame.loadRequest(NSURLRequest(URL: NSURL(string: redirectURL)!))
 			return
 		}
 		
 		// Extract the viewer links from the HTML provided.
 		var links = [String]()
-		for item in HTML.componentsSeparatedByString("<a class=\"button\" href=\"")
+		for item in HTML.componentsSeparatedByString("<a class=\"btn btn-primary btn-small\" href=\"")
 		{
 			var link = baseURL // We need to append the base URL here.
 			for char in item.characters
@@ -205,9 +199,9 @@ class MainViewController: NSViewController
 	}
 }
 // MARK: - Webview load delegate
-extension MainViewController
+extension MainViewController : WebFrameLoadDelegate
 {
-	override func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!)
+	func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!)
 	{
 		if sender.mainFrameURL.rangeOfString("\(baseURL)/leccap/viewer") != nil
 		{
@@ -250,8 +244,4 @@ extension MainViewController
 			showError("Incorrect URL!", informativeText: "The URL you pasted did not contain anything from which we can download videos. If you believe that you pasted the correct URL, you should ensure that HTML 5 player is enabled before pasting the URL.")
 		}
 	}
-//	override func webView(webView: WebView!, decidePolicyForNavigationAction actionInformation: [NSObject : AnyObject]!, request: NSURLRequest!, frame: WebFrame!, decisionListener listener: WebPolicyDecisionListener!)
-//	{
-//		listener.use()
-//	}
 }

@@ -33,8 +33,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	func addViewToWindow(window: NSWindow, view: NSView)
 	{
 		window.contentView = view
-		let heightDifference = view.frame.height - window.contentView.frame.height
-		let widthDifference = view.frame.width - window.contentView.frame.width
+		let heightDifference = view.frame.height - window.contentView!.frame.height
+		let widthDifference = view.frame.width - window.contentView!.frame.width
 		
 		var frame = window.frame
 		frame.size.width += widthDifference
